@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080712" />
+    <meta name="description" content="เซอร์ไพรส์วันเกิดที่ตั้งใจทำให้คนพิเศษ" />
+    <title>สุขสันต์วันเกิดนะ ♡</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#story">ข้ามไปยังของขวัญ</a>
+    <canvas id="cosmos" aria-hidden="true"></canvas>
+    <audio id="birthday-music" src="audio/mystical-piano.mp3" preload="none" loop></audio>
+    <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false" aria-label="เปิดเพลงประกอบ">
+      <span aria-hidden="true">♫</span><span id="music-toggle-label">เปิดเพลง</span>
+    </button>
+    <main id="story" aria-live="polite">
+      <section class="story-screen intro-screen is-active" id="intro" aria-labelledby="intro-title">
+        <div class="intro-panel">
+          <p class="intro-kicker">A LITTLE SURPRISE FOR YOU</p>
+          <h1 id="intro-title">Happy Birthday</h1>
+          <span class="intro-heart" aria-hidden="true">♡</span>
+          <p class="intro-name">แด่ <span data-partner-name>คนเก่ง</span> คนพิเศษของเค้า</p>
+          <div class="cake-area">
+            <button class="cake-button" id="cake-button" type="button" aria-pressed="false" aria-label="แตะเพื่ออธิษฐานและเป่าเทียนวันเกิด">
+              <span class="cake-candle candle-one"><span class="cake-flame"></span></span>
+              <span class="cake-candle candle-two"><span class="cake-flame"></span></span>
+              <span class="cake-candle candle-three"><span class="cake-flame"></span></span>
+              <span class="cake-body"><span class="cake-icing"></span><span class="cake-sprinkles"></span></span>
+              <span class="cake-sparkle sparkle-a" aria-hidden="true">✦</span>
+              <span class="cake-sparkle sparkle-b" aria-hidden="true">♡</span>
+              <span class="cake-sparkle sparkle-c" aria-hidden="true">✧</span>
+              <span class="cake-sparkle sparkle-d" aria-hidden="true">♥</span>
+            </button>
+            <p class="cake-message" id="cake-message" aria-live="polite">หลับตาอธิษฐาน แล้วแตะเค้กเพื่อเป่าเทียนนะ ♡</p>
+          </div>
+          <p class="made-with-love">MADE WITH LOVE</p>
+          <button class="pill-button" id="begin-button" type="button">OPEN ♡</button>
+        </div>
+        <p class="intro-sparkle sparkle-one" aria-hidden="true">✦</p>
+        <p class="intro-sparkle sparkle-two" aria-hidden="true">✧</p>
+      </section>
+
+      <section class="story-screen gifts-screen" id="gifts" aria-labelledby="gifts-title" hidden>
+        <div class="stage-content">
+          <p class="stage-kicker">A GIFT FOR MY FAVORITE PERSON</p>
+          <h2 id="gifts-title">เลือกของขวัญได้เลยนะ</h2>
+          <p class="stage-caption">แอบซ่อนคำอวยพรไว้ให้เธอทั้งหมดเลย ♡</p>
+          <div class="gift-grid" role="group" aria-label="เลือกการ์ดของขวัญ">
+            <button class="gift-card" type="button" data-gift="0" aria-pressed="false" aria-label="ของขวัญชิ้นที่ 1">
+              <span class="gift-number" aria-hidden="true">01 / 05</span><span class="gift-icon" aria-hidden="true">♡</span><span class="gift-label" aria-hidden="true">รอยยิ้ม</span>
+            </button>
+            <button class="gift-card" type="button" data-gift="1" aria-pressed="false" aria-label="ของขวัญชิ้นที่ 2">
+              <span class="gift-number" aria-hidden="true">02 / 05</span><span class="gift-icon" aria-hidden="true">✦</span><span class="gift-label" aria-hidden="true">ความสุข</span>
+            </button>
+            <button class="gift-card" type="button" data-gift="2" aria-pressed="false" aria-label="ของขวัญชิ้นที่ 3">
+              <span class="gift-number" aria-hidden="true">03 / 05</span><span class="gift-icon" aria-hidden="true">☾</span><span class="gift-label" aria-hidden="true">กำลังใจ</span>
+            </button>
+            <button class="gift-card" type="button" data-gift="3" aria-pressed="false" aria-label="ของขวัญชิ้นที่ 4">
+              <span class="gift-number" aria-hidden="true">04 / 05</span><span class="gift-icon" aria-hidden="true">∞</span><span class="gift-label" aria-hidden="true">ความฝัน</span>
+            </button>
+            <button class="gift-card" type="button" data-gift="4" aria-pressed="false" aria-label="ของขวัญชิ้นที่ 5">
+              <span class="gift-number" aria-hidden="true">05 / 05</span><span class="gift-icon" aria-hidden="true">♥</span><span class="gift-label" aria-hidden="true">ความรัก</span>
+            </button>
+          </div>
+          <p class="gift-message" id="gift-message" aria-live="polite">แตะการ์ดสักใบสิ</p>
+          <button class="pill-button next-button" id="memory-button" type="button" disabled>ดูความทรงจำของเรา <span aria-hidden="true">→</span></button>
+        </div>
+        <span class="ambient-heart ambient-heart-left" aria-hidden="true">♥</span>
+        <span class="ambient-heart ambient-heart-right" aria-hidden="true">♥</span>
+      </section>
+
+      <section class="story-screen memory-screen" id="memory" aria-labelledby="memory-title" hidden>
+        <div class="stage-content memory-content">
+          <p class="stage-kicker">OUR LITTLE UNIVERSE</p>
+          <h2 id="memory-title">ความทรงจำที่เค้าชอบที่สุด</h2>
+          <p class="stage-caption">แตะรูปเพื่ออ่านข้อความเล็ก ๆ ที่เค้าอยากบอกนะ ♡</p>
+          <figure class="memory-frame">
+            <div class="memory-collage" aria-label="พื้นที่ใส่รูปความทรงจำของเรา">
+              <button class="memory-photo photo-one" type="button" aria-expanded="false"><span aria-hidden="true">♡</span><small>รูปโปรดของเรา</small></button>
+              <button class="memory-photo photo-two" type="button" aria-expanded="false"><span aria-hidden="true">✦</span><small>วันที่มีความสุข</small></button>
+              <button class="memory-photo photo-three" type="button" aria-expanded="false"><span aria-hidden="true">☾</span><small>คิดถึงจังเลย</small></button>
+              <button class="memory-photo photo-four" type="button" aria-expanded="false"><span aria-hidden="true">♡</span><small>อยากเก็บไว้ตลอดไป</small></button>
+            </div>
+            <p class="memory-secret" id="memory-secret" hidden aria-live="polite"></p>
+            <figcaption><span data-memory-date>วันที่มีเธออยู่ข้าง ๆ</span><span data-partner-name>คนเก่ง</span> ♡</figcaption>
+          </figure>
+          <p class="memory-note">ขอบคุณที่ทำให้ทุกช่วงเวลาของเค้าน่าจดจำ</p>
+          <button class="pill-button" id="finale-button" type="button">ดูคำอวยพรของเค้า <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+
+      <section class="story-screen finale-screen" id="finale" aria-labelledby="finale-title" hidden>
+        <div class="finale-vignette" aria-hidden="true"></div>
+        <div class="heart-drift" aria-hidden="true">
+          <span class="floating-heart heart-one">♥</span>
+          <span class="floating-heart heart-two">♥</span>
+          <span class="floating-heart heart-three">♥</span>
+          <span class="floating-heart heart-four">♥</span>
+          <span class="floating-heart heart-five">♥</span>
+          <span class="floating-heart heart-six">♥</span>
+        </div>
+        <p class="orbit-word orbit-left" aria-hidden="true">ONLY U</p>
+        <p class="orbit-word orbit-right" aria-hidden="true">MY FAVORITE</p>
+        <p class="orbit-word orbit-bottom" aria-hidden="true">HAPPY BIRTHDAY</p>
+        <div class="finale-copy">
+          <p class="finale-kicker">TO MY ONE AND ONLY</p>
+          <h2 id="finale-title">สุขสันต์วันเกิด<br /><span data-partner-name>คนเก่ง</span> ♡</h2>
+          <p class="finale-message">ขอให้โลกใจดีกับเธอ<br />เหมือนที่เธอใจดีกับเค้ามาตลอดเลยนะ</p>
+          <button class="pill-button letter-toggle" id="letter-toggle" type="button" aria-expanded="false" aria-controls="birthday-letter">อ่านข้อความจากใจ</button>
+          <div class="birthday-letter" id="birthday-letter" hidden></div>
+        </div>
+        <button class="replay-button" id="replay-button" type="button">เริ่มเซอร์ไพรส์อีกครั้ง ↺</button>
+        <p class="signature">MADE WITH LOVE BY <span data-sender-name>คนที่รักเธอ</span> ♡</p>
+      </section>
+    </main>
+  </body>
+</html>
